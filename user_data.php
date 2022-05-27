@@ -16,7 +16,6 @@ if(isset ($_POST['submit'])){
 
     fputcsv($fp, $data);
      }
-    // fwrite($fp, $form);
 
     fclose($fp);
 }
@@ -25,10 +24,8 @@ $file = fopen("userdata.csv", "r");
   
 while (($data = fgetcsv($file)) !== false) {
     echo "<pre>";
-    foreach ($data as $i) {
-        print_r ("<li>" . ($i).  "</li>" ) ."<br>";
-   
-    }
+
+        echo implode (" ", $data);
     
 }
 fclose($file);
