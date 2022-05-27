@@ -11,7 +11,7 @@
     <input type="text" name="email" placeholder="Email..."><br>
     <h6>Date of Birth</h6>
     <input type="text" name="dob" placeholder="DOB..."><br>
-    <h6>Sex</h6>
+    <h6>Gender</h6>
     Male<input type="radio" name="gender" value="Male">
     Female<input type="radio" name="gender" value="Female"><br>
     <h6>Nationality</h6>
