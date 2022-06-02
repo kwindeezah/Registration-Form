@@ -1,7 +1,7 @@
 <?php
 
 if(isset ($_POST['submit'])){
-
+ 
     $formData =[
       ['Name: ', $_POST['name']],  
       ['Email: ', $_POST['email']],  
@@ -9,7 +9,8 @@ if(isset ($_POST['submit'])){
       ['Gender: ', $_POST['gender']],  
       ['Country: ', $_POST['country']],  
     ];
-
+//  var_dump($formData);
+//  die();
     $fp = fopen('userdata.csv', 'a');
 
     foreach($formData as $key=>$data){
@@ -20,12 +21,12 @@ if(isset ($_POST['submit'])){
     fclose($fp);
 }
 
-$file = fopen("userdata.csv", "r");
+// $file = fopen("userdata.csv", "r");
   
-while (($data = fgetcsv($file)) !== false) {
-    echo "<pre>";
+// while (($data = fgetcsv($file)) !== false) {
+//     echo "<pre>";
 
-        echo implode (" ", $data);
+//         echo implode (" ", $data);
     
-}
-fclose($file);
+// }
+// fclose($file);
