@@ -1,32 +1,25 @@
 <?php
 
 if(isset ($_POST['submit'])){
- 
-    $formData =[
-      ['Name: ', $_POST['name']],  
-      ['Email: ', $_POST['email']],  
-      ['DOB: ', $_POST['dob']],  
-      ['Gender: ', $_POST['gender']],  
-      ['Country: ', $_POST['country']],  
-    ];
-//  var_dump($formData);
-//  die();
-    $fp = fopen('userdata.csv', 'a');
+      $name = $_POST['name'];  
+      $email = $_POST['email'];
+      $dob = $_POST['dob'];  
+      $gender = $_POST['gender']; 
+      $country = $_POST['country'];
+      $fh= 'userdata.csv'; 
+      $fp = fopen($fh, 'w');
+      $data = "{$name}, {$email}, {$dob}, {$gender}, {$country}";
 
-    foreach($formData as $key=>$data){
+        if(fwrite($fp, $data)){
+        } else{ 
+            echo "There's an error";
+        }
+        fclose($fp);
+} 
 
-    fputcsv($fp, $data);
-     }
-
-    fclose($fp);
-}
-
-// $file = fopen("userdata.csv", "r");
-  
-// while (($data = fgetcsv($file)) !== false) {
-//     echo "<pre>";
-
-//         echo implode (" ", $data);
-    
-// }
-// fclose($file);
+    $file = fopen("userdata.csv", "r");
+        while (($data = fgetcsv($file)) !== false) {
+            echo implode(",",$data);
+              
+            fclose($file);
+        }
